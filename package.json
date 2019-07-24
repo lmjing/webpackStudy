@@ -1,0 +1,34 @@
+{
+  "name": "words-light-library_study",
+  "version": "1.0.0",
+  "description": "자바스크립트 모듈러인 Webpack를 실습하기 위한 소스 코드입니다.\r 본 소스코드는 Webpack 실습과정을 따라 환경구성을 마친 뒤에 실행가능합니다.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack",
+    "server": "webpack-dev-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yejin0216/words-light-library_study.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yejin0216/words-light-library_study/issues"
+  },
+  "homepage": "https://github.com/yejin0216/words-light-library_study#readme",
+  "devDependencies": {
+    "@babel/core": "^7.5.4",
+    "@babel/preset-env": "^7.5.4",
+    "babel-loader": "^8.0.6",
+    "css-loader": "^3.0.0",
+    "html-webpack-plugin": "^3.2.0",
+    "node-sass": "^4.12.0",
+    "sass-loader": "^7.1.0",
+    "style-loader": "^0.23.1",
+    "webpack": "^4.35.3",
+    "webpack-cli": "^3.3.6",
+    "webpack-dev-server": "^3.7.2"
+  }
+}
