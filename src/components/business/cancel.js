@@ -3,12 +3,14 @@
  * @author: mijeong lee
  */
 
-import {__book_data} from "../data/book";
+let books = JSON.parse(localStorage.getItem('books') || "[]");
 
 export default {
     confirm: (index) => {
-        __book_data[index].rtn_dt = '';
-        __book_data[index].sttus = '대여가능';
+        books[index].rtn_dt = '';
+        books[index].sttus = '대여가능';
+        // localStorage에 책 리스트 저장
+        localStorage.setItem('books', JSON.stringify(books));
     },
     setContents: (titleNode, rDateNode) => {
         // 모달 내용 변경

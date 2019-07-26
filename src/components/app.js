@@ -5,7 +5,11 @@ index.html -> app.js -> list.js -> book.js import로 호출
  */
 import "../asset/scss/theme.scss";
 import { makeList } from "./business/list.js"
+import {__book_data} from "./data/book";
 
+// localStorage에서 데이터를 가져온다.
+if (localStorage.getItem('books') === null) {
+    localStorage.setItem('books', JSON.stringify(__book_data));
+}
 //도서 목록 호출
 makeList();
-console.log('app');
