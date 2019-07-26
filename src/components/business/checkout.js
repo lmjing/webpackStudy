@@ -34,6 +34,9 @@ const Modal = (index) => {
         close: () => {
             modalEl.style.display = "none";
         },
+        init: () => {
+            mod
+        },
     };
     return modal;
 };
