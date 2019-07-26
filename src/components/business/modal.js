@@ -5,52 +5,16 @@
  * @author: mijeong lee
  */
 
-import {__book_data} from "../data/book";
 import { replaceRow } from "./list";
-
-// 수 2자리로 만들기
-const twoLength = (n) => {
-    return (n < 10 ? '0' : '') + n;
-};
-
-const checkoutModal = {
-    // 반납 예정일 리턴 함수
-    returnDate: () => {
-        // 반납일 2주 후
-        let date = new Date();
-        date.setDate(new Date().getDate() + 14);
-        // 자바스크립트의 월은 0부터 시작하기 때문에 1을 더해야 정상적인 월이 됩니다.
-        return `${date.getFullYear()}-${twoLength(date.getMonth() + 1)}-${twoLength(date.getDate())}`;
-    },
-    confirm: (index) => {
-        __book_data[index].rtn_dt = checkoutModal.returnDate();
-        __book_data[index].sttus = '반납예정';
-    },
-    contents: (titleNode, rDateNode) => {
-        // 모달 내용 변경
-        titleNode.innerText = '대여하시겠습니까?';
-        rDateNode.innerText = '대여시 반납 예정일 : ' + checkoutModal.returnDate();
-    }
-};
-
-const cancleModal = {
-    confirm: (index) => {
-        __book_data[index].rtn_dt = '';
-        __book_data[index].sttus = '대여가능';
-    },
-    contents: (titleNode, rDateNode) => {
-        // 모달 내용 변경
-        titleNode.innerText = '반납하시겠습니까?';
-        rDateNode.innerText = '';
-    },
-};
+import cancel from "./cancel";
+import checkout from "./checkout";
 
 export const Modal = () => {
     let rowIdx = -1;
     let btnType = '';
     let modalType = {
-        cancel: cancleModal,
-        checkout: checkoutModal,
+        cancel: cancel,
+        checkout: checkout,
     };
     let modalEl = document.getElementById("modal");
     // 취소 버튼 event 등록
@@ -65,7 +29,7 @@ export const Modal = () => {
             // 모달 내용 변경
             let titleNode = modalEl.querySelector('.title');
             let rDateNode = document.getElementById('rDate');
-            modalType.contents(titleNode, rDateNode);
+            modalType.setContents(titleNode, rDateNode);
             // 대여 버튼 event 등록
             let confirmBtn = document.getElementById("confirm");
             confirmBtn.innerText = evtName;
@@ -105,4 +69,4 @@ export const Modal = () => {
     };
 
     return modal;
-}
+};
