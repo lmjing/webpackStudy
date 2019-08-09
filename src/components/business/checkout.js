@@ -20,24 +20,15 @@ const returnDate = () => {
 };
 
 export default {
-    confirm: (index) => {
+    excute: (index) => {
         books[index].rtn_dt = returnDate();
         books[index].sttus = '반납예정';
         // localStorage에 책 리스트 저장
         localStorage.setItem('books', JSON.stringify(books));
         index = null; // 모든 변수 초기화
     },
-    // contents: () => {
-    //     return {
-    //         title: '대여하시겠습니까?',
-    //         date: '대여시 반납 예정일 : ' + returnDate(),
-    //     };
-    // }
-    setContents: (titleNode, rDateNode) => {
-        // 모달 내용 변경
-        titleNode.innerText = '대여하시겠습니까?';
-        rDateNode.innerText = '대여시 반납 예정일 : ' + returnDate();
-        // 모든 변수 초기화
-        titleNode = null; rDateNode = null;
+    contents: {
+        title: '대여하시겠습니까?',
+        dateStr: '대여시 반납 예정일 : ' + returnDate(),
     }
 };

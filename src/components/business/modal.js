@@ -26,14 +26,16 @@ export const Modal = () => {
 
     // return 할 객체
     const modal = {
-        changeContents: (evtName, modalType) => {
-            modalType.setContents(titleNode, rDateNode);
+        changeContents: (evtName, action) => {
+            titleNode.innerText = action.contents.title;
+            rDateNode.innerText = action.contents.dateStr;
+
             // 대여 버튼 event 등록
             let confirmBtn = document.getElementById("confirm");
             confirmBtn.innerText = evtName;
             confirmBtn.addEventListener("click", (e) => {
                 e.preventDefault();
-                modalType.confirm(rowIdx);
+                action.excute(rowIdx);
                 replaceRow(rowIdx);
                 modal.close();
                 confirmBtn = null; // 변수 초기화
