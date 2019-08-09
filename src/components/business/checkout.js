@@ -1,5 +1,3 @@
-import {__book_data} from "../data/book";
-
 /**
  * @description 대여와 관련된 부분을 처리한다.
  * @author: mijeong lee

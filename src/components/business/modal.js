@@ -16,7 +16,7 @@ export const Modal = () => {
         cancel: cancel,
         checkout: checkout,
     };
-    let modalEl = document.getElementById("modal");
+    const modalEl = document.getElementById("modal");
     // 취소 버튼 event 등록
     document.getElementById("cancel").addEventListener("click", (e) => {
         e.preventDefault();
